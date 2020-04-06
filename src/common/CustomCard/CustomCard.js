@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./CustomCard.css";
 import {
@@ -26,5 +27,11 @@ function CustomCard(props) {
     </div>
   );
 }
+
+CustomCard.propTypes = {
+  containerClass: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  footer: PropTypes.element,
+};
 
 export default CustomCard;
