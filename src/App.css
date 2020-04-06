@@ -1,9 +1,19 @@
-.header {
-  padding: 0 20px;
-}
-
 .title {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
+}
+
+.title-left {
+  text-align: left;
+}
+
+.header {
+  padding: 0 20px;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: inherit;
 }
