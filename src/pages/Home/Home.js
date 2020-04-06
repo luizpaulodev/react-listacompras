@@ -1,8 +1,9 @@
 import React from "react";
 
-import "./Home.css";
 import NewList from "./NewList";
 import List from "./List";
+
+import "./Home.css";
 
 function Home() {
   return (

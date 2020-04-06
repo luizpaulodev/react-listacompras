@@ -5,7 +5,7 @@ import "./NewList.css";
 
 function NewList() {
   return (
-    <CustomCard containerClass="new-list-container">
+    <CustomCard link="/lista" containerClass="new-list-container">
       <div>
         <p className="title">Adicionar Novas Listas!</p>
       </div>
