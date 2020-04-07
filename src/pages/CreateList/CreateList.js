@@ -1,63 +1,20 @@
-import React from "react";
+import React from 'react'
 
-import "./CreateList.css";
+import Form from './Form'
+import ListItem from './ListItem'
 
-import { TextField, MenuItem, InputAdornment } from "@material-ui/core";
+import './CreateList.css'
 
-const units = ["kg", "lt", "un"];
-
-function CreateList() {
+function CreateList () {
   return (
-    <div className="page-container">
-      <form className="form-container">
-        <TextField
-          label="Lista"
-          name="list"
-          value={""}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          label="Produto"
-          name="product"
-          value={""}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          label="Quantidade"
-          name="quantity"
-          value={""}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          style={{ width: "100px" }}
-          select
-          label="Unidade"
-          name="unity"
-          value={""}
-          onChange={() => {}}
-          required
-        >
-          {units.map((option) => (
-            <MenuItem key={option}>{option}</MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          label="Preço"
-          name="price"
-          value={""}
-          onChange={() => {}}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">R$</InputAdornment>
-            ),
-          }}
-        />
-      </form>
+    <div className='page-container'>
+      <Form />
+
+      <div className='list-items-container'>
+        <ListItem />
+      </div>
     </div>
-  );
+  )
 }
 
-export default CreateList;
+export default CreateList
