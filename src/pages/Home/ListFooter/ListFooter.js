@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
-function ListFooter() {
+function ListFooter ({ total }) {
   return (
-    <div className="list-footer">
+    <div className='list-footer'>
       <p>01/01/2020</p>
-      <p>100.00</p>
+      <p>{total}</p>
     </div>
-  );
+  )
 }
 
-export default ListFooter;
+export default ListFooter

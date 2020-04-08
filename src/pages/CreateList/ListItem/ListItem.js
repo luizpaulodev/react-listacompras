@@ -4,24 +4,29 @@ import { Checkbox, Typography } from '@material-ui/core'
 import ListItemFooter from '../ListItemFooter'
 import CustomCard from '../../../common/CustomCard'
 
-function ListItem () {
+function ListItem ({ item, deleteProduct, toggleProduct }) {
   return (
     <CustomCard
       link='#'
       image='https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1200px-A_small_cup_of_coffee.JPG'
       containerClass='list-item'
-      footer={<ListItemFooter />}
+      footer={<ListItemFooter item={item} deleteProduct={deleteProduct} />}
     >
       <div>
         <div className='list-item-header'>
           <Typography variant='subtitle1' component='h2'>
-            Café
+            {item.product}
           </Typography>
-          <Checkbox />
+          <Checkbox
+            onClick={() => toggleProduct(item.id)}
+            checked={item.checked}
+          />
         </div>
 
-        <Typography component='p'>1 Unidade</Typography>
-        <Typography component='p'>R$ 10.00</Typography>
+        <Typography component='p'>
+          {item.quantity} {item.unit}
+        </Typography>
+        <Typography component='p'>R$ {item.price}</Typography>
       </div>
     </CustomCard>
   )

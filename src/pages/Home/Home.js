@@ -1,17 +1,20 @@
-import React from "react";
+import React from 'react'
 
-import NewList from "./NewList";
-import List from "./List";
+import NewList from './NewList'
+import List from './List'
 
-import "./Home.css";
+import './Home.css'
 
-function Home() {
+function Home (props) {
   return (
-    <div className="page-container">
+    <div className='page-container'>
       <NewList />
-      <List />
+
+      {props.list.items.length > 0 && (
+        <List list={props.list.list} total={props.total} />
+      )}
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

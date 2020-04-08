@@ -1,3 +1,11 @@
-import Home from './Home';
+import Home from './Home'
+import { connect } from 'react-redux'
 
-export default Home;
+import { getListTotal } from '../../store/reducers/list'
+
+const mapStateToProps = state => ({
+  list: state.list,
+  total: getListTotal(state)
+})
+
+export default connect(mapStateToProps, null)(Home)
