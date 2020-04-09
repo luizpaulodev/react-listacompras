@@ -1,23 +1,30 @@
 export const Types = {
-  ADD_PRODUCT: 'ADD_PRODUCT',
-  DELETE_PRODUCT: 'DELETE_PRODUCT',
-  TOGGLE_PRODUCT: 'TOGGLE_PRODUCT'
-}
+  ADD_PRODUCT: "Form/ADD_PRODUCT",
+  DELETE_PRODUCT: "Form/DELETE_PRODUCT",
+  TOGGLE_PRODUCT: "Form/TOGGLE_PRODUCT",
+  UPDATE_PRODUCT: "Form/UPDATE_PRODUCT",
+};
 
 export const Creators = {
   addProduct: (product, list) => ({
     type: Types.ADD_PRODUCT,
     product,
-    list
+    list,
   }),
 
-  deleteProduct: productId => ({
+  deleteProduct: (productId) => ({
     type: Types.DELETE_PRODUCT,
-    productId
+    productId,
   }),
 
-  toggleProduct: productId => ({
+  toggleProduct: (productId) => ({
     type: Types.TOGGLE_PRODUCT,
-    productId
-  })
-}
+    productId,
+  }),
+
+  updateProduct: (product, list) => ({
+    type: Types.UPDATE_PRODUCT,
+    product,
+    list,
+  }),
+};
