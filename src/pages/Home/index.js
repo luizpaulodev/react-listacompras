@@ -1,11 +1,12 @@
-import Home from './Home'
-import { connect } from 'react-redux'
+import Home from "./Home";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import { getListTotal } from '../../store/reducers/list'
+import { getListTotal } from "../../store/reducers/list";
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   list: state.list,
-  total: getListTotal(state)
-})
+  total: getListTotal(state),
+});
 
-export default connect(mapStateToProps, null)(Home)
+export default connect(mapStateToProps, null)(Home);
