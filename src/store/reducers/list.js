@@ -36,6 +36,12 @@ export default function list (state = initialState, action) {
         items: toggleItem(state.items, action.productId)
       }
 
+    case Types.UPDATE_PRODUCT:
+      return {
+        list: action.list,
+        items: updateProduct(state.items, action.product)
+      }
+
     default:
       return state
   }
@@ -44,6 +50,18 @@ export default function list (state = initialState, action) {
 // Helpers
 function getItemTotal (product) {
   return product.price * product.quantity
+}
+
+function updateProduct (items, product) {
+  console.log(items, product)
+
+  const index = items.findIndex(item => item.id === product.id)
+
+  return [
+    ...items.slice(0, index), // Todos os itens antes do item a ser modificado
+    { ...product, total: getItemTotal(product) }, // Item modificado
+    ...items.slice(index + 1) // Todos os itens depois do item a ser modificado
+  ]
 }
 
 function toggleItem (items, productId) {
