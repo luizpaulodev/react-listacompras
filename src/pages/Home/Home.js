@@ -11,7 +11,12 @@ function Home (props) {
       <NewList />
 
       {props.list.items.length > 0 && (
-        <List list={props.list.list} total={props.total} />
+        <List
+          list={props.list.list}
+          total={props.total}
+          openedItems={props.openedItems}
+          closedItems={props.closedItems}
+        />
       )}
     </div>
   )
