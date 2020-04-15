@@ -4,6 +4,7 @@ import Form from "./Form";
 import ListItem from "./ListItem";
 
 import "./CreateList.css";
+import NewItem from "./NewItem";
 
 function CreateList(props) {
   const addProduct = (product, list) => {
@@ -12,17 +13,26 @@ function CreateList(props) {
 
   return (
     <div className="page-container">
-      <Form addProduct={addProduct} updateProduct={props.updateProduct} />
+      <Form
+        url={props.match.params.action}
+        addProduct={addProduct}
+        updateProduct={props.updateProduct}
+      />
 
       <div className="list-items-container">
         {props.list.items.map((item) => (
           <ListItem
             key={item.id}
             item={item}
+            list={props.list.list}
             toggleProduct={props.toggleProduct}
             deleteProduct={props.deleteProduct}
           />
         ))}
+
+        {props.match.params.action === "edicao" && (
+          <NewItem list={props.list.list} />
+        )}
       </div>
     </div>
   );

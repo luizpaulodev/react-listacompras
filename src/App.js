@@ -30,7 +30,7 @@ function App() {
             <Header />
             <Switch>
               <Route path="/" component={Home} exact />
-              <Route path="/lista" component={CreateList} />
+              <Route path="/lista/:action" component={CreateList} />
             </Switch>
           </div>
         </BrowserRouter>

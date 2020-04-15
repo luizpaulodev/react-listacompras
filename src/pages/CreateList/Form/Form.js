@@ -34,12 +34,20 @@ class Form extends Component {
       } = this.props.form.productToUpdate;
 
       this.setState({
+        list: this.props.form.listToUpdate,
         product,
         quantity,
         unit,
         price,
         showErrors: false,
       });
+    }
+
+    if (
+      this.props.form.action === "new" &&
+      prevProps.form.action !== this.props.form.action
+    ) {
+      this.setState({ list: this.props.form.listToUpdate });
     }
   }
 
@@ -53,15 +61,16 @@ class Form extends Component {
     if (!list || !product || !quantity || !unit) {
       this.setState({ showErrors: true });
     } else {
-      this.props.form.action === "new"
-        ? this.additem(list, product, quantity, unit, price)
-        : this.updateItem(list, product, quantity, unit, price);
+      this.props.form.action === "update"
+        ? this.updateItem(list, product, quantity, unit, price)
+        : this.additem(list, product, quantity, unit, price);
     }
   };
 
   additem = (list, product, quantity, unit, price) => {
     this.props.addProduct({ product, quantity, unit, price }, list);
     this.clearState();
+    this.props.finishAdd();
   };
 
   updateItem = (list, product, quantity, unit, price) => {
@@ -85,6 +94,8 @@ class Form extends Component {
   };
 
   render() {
+    if (!this.props.showForm) return <div></div>;
+
     return (
       <form className="form-container">
         <div className="form-row">

@@ -8,6 +8,8 @@ import {
   getClosedItems,
 } from "../../store/reducers/list";
 
+import { Creators as ListActions } from "../../store/actions/list";
+
 const mapStateToProps = (state) => ({
   list: state.list,
   total: getListTotal(state),
@@ -15,4 +17,7 @@ const mapStateToProps = (state) => ({
   closedItems: getClosedItems(state),
 });
 
-export default connect(mapStateToProps, null)(Home);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(ListActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import NewList from './NewList'
-import List from './List'
+import NewList from "./NewList";
+import List from "./List";
 
-import './Home.css'
+import "./Home.css";
 
-function Home (props) {
+function Home(props) {
   return (
-    <div className='page-container'>
-      <NewList />
+    <div className="page-container">
+      <NewList newList={props.newList} />
 
       {props.list.items.length > 0 && (
         <List
@@ -19,7 +19,7 @@ function Home (props) {
         />
       )}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
